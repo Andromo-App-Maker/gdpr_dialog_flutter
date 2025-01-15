@@ -24,6 +24,10 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 30
 
+    if (project.android.hasProperty("namespace")) {
+        namespace("com.gmail.antonmolchan00.gdpr_dialog")
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
