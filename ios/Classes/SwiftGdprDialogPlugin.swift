@@ -101,7 +101,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
   }
 
   private func loadForm(result: @escaping FlutterResult) {
-    UMPConsentForm.load(
+    ConsentForm.load(
       with: { form, loadError in
         if loadError != nil {
           print("Error on loadForm: \(loadError)")
@@ -109,7 +109,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         } else {
           // Present the form. You can also hold on to the reference to present
           // later.
-          if ConsentInformation.shared.consentStatus == UMPConsentStatus.required {
+          if ConsentInformation.shared.consentStatus == ConsentStatus.required {
             form?.present(
               from: (UIApplication.shared.delegate?.window?!.rootViewController)!,
                 completionHandler: { dismissError in
